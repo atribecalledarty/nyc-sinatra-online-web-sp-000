@@ -62,7 +62,12 @@ class FiguresController < ApplicationController
         @figure.landmarks << Landmark.find(landmark_id)
       end
     end
-    
+    if params["landmark"]["name"] != ""
+      @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
+    end
+    if params["title"]["name"] != ""
+      @figure.titles << Title.create(name: params["title"]["name"])
+    end
     @figure.save
     
     redirect "/figures/#{params[:id]}"
