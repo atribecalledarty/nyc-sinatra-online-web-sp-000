@@ -11,7 +11,7 @@ class FiguresController < ApplicationController
   end
   
   post '/figures' do
-    @figure = Figure.create(name: params["figure[name]"])
+    @figure = Figure.create(name: params["figure"]["name"])
     if !!params["figure"]["title_ids"].empty?
       params["figure"]["title_ids"].each do |title_id|
         @figure.titles << Title.find(title_id)
