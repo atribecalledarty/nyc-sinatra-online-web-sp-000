@@ -13,8 +13,13 @@ class FiguresController < ApplicationController
   post '/figures' do
     @figure = Figure.create(name: params["figure[name]"])
     params["figure[title_ids]"].each do |title_id|
-      
+      @figure.titles << Title.find(title_id)
     end
+    params["figure[landmark_ids]"].each do |landmark_id|
+      @figure.landmarks << Landmark.find(landmark_id)
+    end
+    @figure.landmarks << Landmark.create(name: params[""])
+    @figure.save
   end
   
   get '/figures/:id' do
