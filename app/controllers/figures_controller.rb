@@ -11,7 +11,10 @@ class FiguresController < ApplicationController
   end
   
   post '/figures' do
-    @figure = Figure.create(name: params[])
+    @figure = Figure.create(name: params["figure[name]"])
+    params["figure[title_ids]"].each do |title_id|
+      
+    end
   end
   
   get '/figures/:id' do
