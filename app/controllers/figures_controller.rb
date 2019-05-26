@@ -19,4 +19,12 @@ class FiguresController < ApplicationController
   get '/figures/:id/edit' do
     erb :'figures/edit'
   end
+  
+  patch '/figures/:id' do
+    @figure = Figure.find(params[:id])
+    @figure.name = params["figure_name"]
+    @figure.save
+    
+    redirect "/figures/#{params[:id]}"
+  end
 end
