@@ -23,7 +23,11 @@ class FiguresController < ApplicationController
       end
     end
     if params["landmark"]["name"] != ""
-    @figure.landmarks << Landmark.create(name: params["landmark[name]"])
+      @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
+    end
+    if params["title"]["name"] != ""
+      @figure.titles << Title.create(name: params["title"]["name"])
+    end
     @figure.save
     binding.pry
     
