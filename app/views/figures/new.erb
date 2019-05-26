@@ -4,6 +4,10 @@
   <input type="text" name="figure[name]" id="figure_name">
   <br>
   
-  <label>Title: </label>
-  <input type="text" name="figure[title]">
+  <% Title.all.each do |title| %>
+    <input type="checkbox" name="figure[title_ids][]" id="<%= title.name %>" value="<%= title.id %>"><%= title.name %></input>
+  <% end %>
+  <br>
+  
+  
 </form>
