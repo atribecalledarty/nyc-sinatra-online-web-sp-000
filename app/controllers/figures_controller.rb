@@ -22,7 +22,7 @@ class FiguresController < ApplicationController
   
   patch '/figures/:id' do
     @figure = Figure.find(params[:id])
-    @figure.name = params["figure_name"]
+    @figure.name = params["figure[name]"]
     @figure.save
     
     redirect "/figures/#{params[:id]}"
