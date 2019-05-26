@@ -6,8 +6,14 @@ class LandmarksController < ApplicationController
     erb :'landmarks/index'
   end
   
-  get 'landmarks/new' do
+  get '/landmarks/new' do
     erb :'landmarks/new'
+  end
+  
+  post '/landmarks' do
+    @landmark = Landmark.create(name: params["landmark"]["name"])
+    
+    redirect "/landmarks/#{@landmark.id}"
   end
   
   get '/landmarks/:id' do
