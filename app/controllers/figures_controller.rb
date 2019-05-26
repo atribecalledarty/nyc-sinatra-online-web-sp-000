@@ -7,7 +7,7 @@ class FiguresController < ApplicationController
   end
   
   get '/figures/new' do
-    
+    erb :'figures/new'
   end
   
   get '/figures/:id' do
