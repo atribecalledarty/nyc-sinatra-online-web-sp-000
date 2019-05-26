@@ -1,12 +1,4 @@
 <h1>Edit Figure</h1>
-<form method="POST" action="/figures/<%= params[:id] %>">
-  
-  <input type="text" name="figure[name]" id="figure_name">
-  <br>
-  <input type="submit" id="submit">
-</form>
-
-<h1>Edit Figure</h1>
 <form action="/figures/<%= params[:id] %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name: </label>
@@ -31,5 +23,5 @@
   <input type="text" name="title[name]" id="new_title">
   <br>
   
-  <input type="submit" value="Create New Figure">
+  <input type="submit" value="Edit Figure">
 </form>
