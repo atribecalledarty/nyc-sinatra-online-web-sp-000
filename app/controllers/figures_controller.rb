@@ -45,7 +45,9 @@ class FiguresController < ApplicationController
   
   patch '/figures/:id' do
     @figure = Figure.find(params[:id])
-    @figure.name = params["figure[name]"]
+    if params["figure"]["name"] != ""
+      @figure.name = params["figure"]["name"]
+    end
     @figure.save
     
     redirect "/figures/#{params[:id]}"
