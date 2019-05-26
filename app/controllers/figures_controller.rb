@@ -12,12 +12,12 @@ class FiguresController < ApplicationController
   
   post '/figures' do
     @figure = Figure.create(name: params["figure[name]"])
-    if !params["figure[title_ids]"].empty?
+    if !(params["figure[title_ids]"].empty?)
       params["figure[title_ids]"].each do |title_id|
         @figure.titles << Title.find(title_id)
       end
     end
-    if !params["figure[landmark_ids]"].empty?
+    if !(params["figure[landmark_ids]"].empty?)
       params["figure[landmark_ids]"].each do |landmark_id|
         @figure.landmarks << Landmark.find(landmark_id)
       end
