@@ -1,4 +1,4 @@
-<h1>Edit Figure</h1>
+<h1>Edit <%= @figure.name %></h1>
 <form action="/figures/<%= params[:id] %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name: </label>
