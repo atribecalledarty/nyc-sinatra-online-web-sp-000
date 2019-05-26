@@ -3,7 +3,8 @@
 <!-- add content here -->
 <ul>
   <% @landmarks.each do |landmark| %>
-  <li></li>
+  <li><%= landmark.name %></li>
+  <% end %>
 </ul>
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>
