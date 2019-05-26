@@ -50,6 +50,19 @@ class FiguresController < ApplicationController
     if params["figure"]["name"] != ""
       @figure.name = params["figure"]["name"]
     end
+    @figure.titles.clear
+    if !!params["figure"]["title_ids"]
+      params["figure"]["title_ids"].each do |title_id|
+        @figure.titles << Title.find(title_id)
+      end
+    end
+    @figure.landmarks.clear
+    if !!params["figure"]["landmark_ids"]
+      params["figure"]["landmark_ids"].each do |landmark_id|
+        @figure.landmarks << Landmark.find(landmark_id)
+      end
+    end
+    
     @figure.save
     
     redirect "/figures/#{params[:id]}"
